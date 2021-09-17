@@ -1,4 +1,4 @@
-# To-Do 
+# To-Do Lists
 
 ## Release 0: Setup
 We are going to create a CRUD app to create To-Do lists. Start by setting up a new Django project. We will be deploying this project to Heroku so you'll want to install `psycopg2` and set up your project with a Postgresql database. 
