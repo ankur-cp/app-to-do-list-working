@@ -31,7 +31,7 @@ One you have the main features implemented for this project, try to proceed with
 
 Your site should only show the Task Lists (and Tasks) belonging to the signed-in user. 
 
-## Release 4: Stretch Challenge: Additional Features
+## Release 4: Additional Features (Stretch Challenge)
 
 ### Task Status
 - Add the ability to assign various different task statuses (instead of just "completed"), such as "started", "blocked", or "under review"
