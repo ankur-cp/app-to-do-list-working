@@ -1,34 +1,43 @@
 # To-Do Lists
 
-## Release 0: Setup
-We are going to create a CRUD app to create To-Do lists. Start by setting up a new Django project. We will be deploying this project to Heroku so you'll want to install `psycopg2` and set up your project with a Postgresql database. 
+For this project, you'll be asked to create a full-stack "To Do List" application using Django + React.
 
-## Release 1: Models 
-Once you're project is set up, create a new app for To-Do lists and set up your models. 
-- A User should be able to create multiple lists. 
-- Each list can have many tasks associated with it. 
-- Each task belongs to one List. 
+## Release 1: Django Back-End
+Your data model design should allow for the following features: 
+- A User should be able to create multiple Task Lists. 
+- Each List can have many Tasks associated with it. 
+- Each Task belongs to one List. 
 - Users should be able to create, read, update, and destroy a List. 
 - Users should be able to create, read, update, and destroy Tasks on a List. 
 - Each Task should have a boolean value for completion. `task.completed = True` 
 - Each Task should have a due date. 
 
-## Release 2: Front End 
-Start a new react app to act as the front end for your To-Do List. 
-- On the main page, a user should see all of Lists that still have incomplete tasks. 
-- Clicking on a list will take you to a List page that displays all the tasks for that list. 
-- From here a user should be able to: 
-    - create new tasks 
-    - update existing tasks
-    - mark a task as complete
+## Release 2: React Front End 
+Your front-end site should encorporate the following pages:
+- Home Page
+  - Show a list of all the Task Lists, divided by completed and uncompleted  
+  - Ability to create a new Task List
+- Task List Page
+  - Show all Tasks for the given List, as well as due date and completion status for those Tasks
+  - Ability to create a new Task for the current List
+  - Ability to update (check-off) a Task
+  - Ability to delete a Task
 
-## Release 3: Additional Functionality 
-Once you have the basic CRUD functionality working, add **at least one** of the following features. You'll have to-do your own research to figure out how to impliment some of these. Don't worry, spending hours and hours reading blogs and documentation is a huge part of programming. If you get frustrated, you're doing it right. 
+Additionally, you should provide proper navigation and some styling to make this a complete site!
 
-### Easy-ish
-- Add a feature for users to view all their completed Lists. 
-- Add the ability to add a status to each task. Something like `task.status = 'Awaiting Review'` or `task.status = 'Started'`
 
-### Less Easy
-- Add the ability to link a task to another List. Example: Say you had a list called Tasks For the Week, and one of the tasks was "Create a new Crud Challenge for Code Platoon Students" That task might have many steps, so it would link to a new List with a list of tasks for writing the challenge. 
-- Right now our tasks are probably displayed in the order they were created. How can you add the ability to order and re-order tasks for a given list?  
+## Release 3: User Authentication
+One you have the main features implemented for this project, try to proceed with adding in user authentication functionality. This would include sign-up and login/logout pages on your front-end, and authentication logic in your back-end
+
+Your site should only show the Task Lists (and Tasks) belonging to the signed-in user. 
+
+## Release 4: Stretch Challenge: Additional Features
+
+### Task Status
+- Add the ability to assign various different task statuses (instead of just "completed"), such as "started", "blocked", or "under review"
+
+### Task Priority
+- Add the ability to assign a priority to each task, and maybe sort Tasks by priority on the front-end
+
+### Sub-Task List
+- Add the ability to have a Task List nested as a Task under another Task List. For example, if one of our tasks was to "bake a cake", we might want to create a sub-task list with some tasks like "wash dishes", "buy flour", and "find new recipe". 
