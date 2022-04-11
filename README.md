@@ -27,9 +27,9 @@ Additionally, you should provide proper navigation and some styling to make this
 
 
 ## Release 3: User Authentication
-One you have the main features implemented for this project, try to proceed with adding in user authentication functionality. This would include sign-up and login/logout pages on your front-end, and authentication logic in your back-end
+Once you have the main features implemented for this project, try to proceed with adding in user authentication functionality. This would include sign-up and login/logout pages on your front-end, and authentication logic in your back-end.
 
-Your site should only show the Task Lists (and Tasks) belonging to the signed-in user. 
+Your site should only show the Task Lists (and Tasks) belonging to the logged-in user. 
 
 ## Release 4: Additional Features (Stretch Challenge)
 
