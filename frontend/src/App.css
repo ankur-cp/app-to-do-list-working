@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.btn-delete {
+  font-size: 8px;
+  height: 20px;
+  font-weight: 700;
+  border-radius: 30%;
+  background-color: red;
+  border: black solid 2px;
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+  border-radius: 30%;
+  background-color: #FFAAAA;
+  border: #440000 solid 2px
+}
