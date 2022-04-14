@@ -13,20 +13,22 @@ from rest_framework.authentication import SessionAuthentication
 
 class TaskListViewSet(ModelViewSet):
     #queryset = TaskList.objects.all()
-    # authentication_classes = [SessionAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskListSerializer
 
     def create(self, request, *args, **kwargs):
-        print("/////////////////////////1 req data", request.data)
-        request.data["creator"] = request.user.username
-        print("/////////////////////////1 req data", request.data)
-        print("/////////////////////////1 req user", request.user)
+        print("/////////////////////// uuu:", request.user)
+        #request.data["creator"] = request.user.username
         return super().create(request, *args, **kwargs)
 
     def get_queryset(self):
-        print("/////////////////////////2 req user", self.request.user)
-        return TaskList.objects.filter(creator=self.request.user.id)          
+        print("/////////////////////// www:", self.request.user)
+        return TaskList.objects.filter(creator=self.request.user.id)
+        #return TaskList.objects.all() 
+        
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)     
 
 class TaskViewSet(ModelViewSet):
     queryset = Task.objects.all()

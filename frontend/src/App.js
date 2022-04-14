@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 function App() {
   // states
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("n")
 
   // render
   return (

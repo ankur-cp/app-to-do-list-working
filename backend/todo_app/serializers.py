@@ -18,7 +18,7 @@ class TaskListSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         try: 
             something = super().create(validated_data)
-            print("/////// err:", something)
+            print("/////// som:", something)
             return something
         except Exception as e:
             print("/////// err:", e)

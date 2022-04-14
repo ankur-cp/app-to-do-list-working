@@ -6,10 +6,10 @@ const getConfig = (useCsrfToken = true) => {
   if (useCsrfToken) {
     let csrftoken = Cookie.get("csrftoken")
     console.log("///// csrf:", csrftoken)
-    config = {
+    config = { // added for authentication
       withCredentials: true, 
       headers: {
-        'X-CSRFToken': csrftoken
+        'X-CSRFToken': Cookie.get("csrftoken")
       }
     }
   }
@@ -22,10 +22,11 @@ const tryCatchFetch = async (axiosCall) => {
     return response.data || { message: "success" }
   }
   catch (e) {
-    console.error("-- ERROR: ", e)
+    console.error("-- ERROR: ", e.response ? e.response : e)
     return null
   }
 }
+
 
 
 const ToDoAPI = { }
@@ -37,7 +38,7 @@ ToDoAPI.login = async (loginData) => {
 }
 
 ToDoAPI.logout = async () => {
-  return await tryCatchFetch(() => axios.post(`${BASE_URL}logout/`))
+  return await tryCatchFetch(() => axios.post(`${BASE_URL}logout/`, null, getConfig()))
 }
 
 ToDoAPI.getTaskLists = async () => {
@@ -45,6 +46,21 @@ ToDoAPI.getTaskLists = async () => {
 }
 
 ToDoAPI.createTaskList = async (newTaskList) => {
+  
+  
+  // let response = await fetch(`${BASE_URL}task-lists/`, {
+  //   credentials: 'include',
+  //   method: 'POST',
+  //   //mode: 'same-origin',
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json',
+  //     'X-CSRFToken': Cookie.get("csrftoken")
+  //   },
+  //   body: JSON.stringify(newTaskList)
+  //  })
+  // return await response.json()
+
   return await tryCatchFetch(() => axios.post(`${BASE_URL}task-lists/`, newTaskList, getConfig()))
 }
 

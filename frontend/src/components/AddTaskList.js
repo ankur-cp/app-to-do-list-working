@@ -10,7 +10,8 @@ function AddTaskList(props) {
 
     const newTaskList = {
       name: evt.target.elements["name"].value,
-      description: evt.target.elements["description"].value
+      description: evt.target.elements["description"].value,
+      tasks: []
     }
 
     const data = await ToDoAPI.createTaskList(newTaskList)
@@ -27,7 +28,9 @@ function AddTaskList(props) {
         <input type="text" name="name" placeholder="enter name" />
         <input type="text" name="description" placeholder="enter description" />
         <button type="submit">Add Task List</button>
+        <br />
       </form>
+      <button onClick={ () => ToDoAPI.logout() }>logout</button>
     </div>
   )
 }
